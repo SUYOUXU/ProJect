@@ -2,14 +2,14 @@
 <template>
 
   <div>
-    
+  WelCome
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'CityList',
+  name: 'WelCome',
   props:[],
   components: {
    
