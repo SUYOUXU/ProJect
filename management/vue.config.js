@@ -109,34 +109,24 @@ module.exports = {
                                 "name": "用户列表",
                                 "path": "/home/users"
                             }]
-                        }, {
-                            "id": 2,
-                            "name": "员工管理",
-                            "child": [{
-                                "id": 2,
-                                "name": "员工列表",
-                                "path": "/home/rote"
-                            },]
-                        }, {
+                        },  {
                             "id": 3,
                             "name": "商品管理",
                             "child": [{
                                 "id": 4,
                                 "name": "商品列表",
                                 "path": "/home/product"
-                            }, {
-                                "id": 5,
-                                "name": "分类参数",
-                                "path": "/home/userss"
-                            }, {
-                                "id": 6,
-                                "name": "商品分类",
-                                "path": "/home/producttype"
                             }]
                         }, {
                             "id": 4,
                             "name": "订单管理",
-                            "child": []
+                            "child": [
+                                {
+                                    "id": 4,
+                                    "name": "订单列表",
+                                    "path": "/home/order"
+                                }
+                            ]
                         }, {
                             "id": 5,
                             "name": "数据统计",

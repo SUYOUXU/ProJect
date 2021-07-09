@@ -5,8 +5,16 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
+
+// axios跨域请求封装
+import request, { baseUrl } from './utils/request'
 // 把axios挂载在大Vue的原型链上 这样每个页面都可以使用 this.$http
 Vue.prototype.$http = axios
+
+
+
+Vue.prototype.$request = request;
+Vue.prototype.$baseUrl = baseUrl;
 
 Vue.use(ElementUI);
 Vue.config.productionTip = false

@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import WelCome from '../views/WelCome.vue'
 import users from '../views/users.vue'
+import GoodsList from '../views/GoodsList.vue'
+import Order from '../views/Order.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,7 @@ const routes = [
     redirect: '/home/WelCome',
     children: [{ path: 'WelCome', component: WelCome }]
   },
+  // 用户管理
   {
     path: '/home',
     name: 'Home',
@@ -22,6 +25,26 @@ const routes = [
     redirect: '/home/WelCome',
     children: [{ path: 'WelCome', component: WelCome },
     { path: 'users', component: users }
+    ]
+  }, 
+  // 商品管理
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    redirect: '/home/product',
+    children: [{ path: 'WelCome', component: WelCome },
+    { path: 'product', component: GoodsList }
+    ]
+  },
+  // 订单管理
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    redirect: '/home/order',
+    children: [{ path: 'WelCome', component: WelCome },
+    { path: 'order', component: Order }
     ]
   },
   {

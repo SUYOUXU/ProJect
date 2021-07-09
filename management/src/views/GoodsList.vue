@@ -2,13 +2,14 @@
 <template>
 
   <div>
-  WelCome
+    <h1>GoodsList</h1>
   </div>
 </template>
-<script src="echarts.min.js"> </script>
+
 <script>
+
 export default {
-  name: 'WelCome',
+  name: 'GoodsList',
   props:[],
   components: {
    
@@ -44,7 +45,6 @@ export default {
   //页面销毁之后
   destroyed() {},
 }
-
 </script>
 
 

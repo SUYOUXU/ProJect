@@ -5,7 +5,6 @@
     <!--面包屑导航区 -->
     <!-- <el-bareadcrumb> 面包屑导航包裹的标签 该标签里面自带有插槽 也有写好的样式 -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <!-- :to="{path:'/home'}" 点击该位置要去到的地方（绑定） -->
       <el-breadcrumb-item :to="{ path: '/home' }"> 首页 </el-breadcrumb-item>
       <el-breadcrumb-item> 用户管理 </el-breadcrumb-item>
       <el-breadcrumb-item> 用户列表 </el-breadcrumb-item>
@@ -13,9 +12,7 @@
 
     <!--  面包屑后的卡片区域 -->
     <el-card class="box-card">
-      <!-- 把一行的长度分为20份 -->
       <el-row :gutter="20">
-        <!-- 占8份 -->
         <el-col :span="8">
           <el-input
             placeholder="请输入内容"
@@ -43,7 +40,6 @@
         <!-- type="index" 指的是该序号排列按index来做 -->
         <el-table-column label="序号" type="index" width="80">
         </el-table-column>
-        <!-- prop="UserName" 接收 userlist UserName的信息 -->
         <el-table-column label="用户名" prop="UserName" width="80">
         </el-table-column>
         <el-table-column label="手机" prop="Mobile" width="110">

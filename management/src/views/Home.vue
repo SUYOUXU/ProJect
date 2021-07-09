@@ -16,11 +16,14 @@
       </el-header>
       
       <el-container>
-        <el-aside class="elaside" :width="isOpen ? '42px' : '200px'">
+        <el-aside 
+        class="elaside" 
+        :width="isOpen ? '42px' : '200px'"
+        >
           <!-- 这里写一个 可以伸长缩短 asidebar的动画小按钮 -->
-          <div @click="switchMenu" class="toggleBtn">
-            <i :class="isOpen ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
-          </div>
+        <div @click="switchMenu" class="toggleBtn">
+          <i :class="isOpen ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
+        </div>
 
           <!-- 左侧菜单区域 -->
           <!--
@@ -102,16 +105,13 @@ export default {
       // 用中文key给项目循环添加icon图标
       iconObj2: {
         用户管理: "iconfont icon-Management",
-        员工管理: "iconfont icon-quanxianguanli",
+       
         商品管理: "iconfont icon-shangpinguanli",
         订单管理: "iconfont icon-dingdanguanli",
         数据统计: "iconfont icon-shujutongji",
         用户列表: "iconfont icon-yonghuliebiao",
-        员工列表: "iconfont icon-role-list",
-        权限列表: "iconfont icon-permissions-list",
         商品列表: "iconfont icon-shangpinliebiao",
-        分类参数: "iconfont icon-quanbu",
-        商品分类: "iconfont icon-fenleigongnengleimu",
+       
       },
     };
   }, //方法 函数写这里
@@ -182,6 +182,7 @@ export default {
 }
 .el-aside {
   background-color: #4e72b8;
+
   /* line-height: 400px; */
 }
 .el-main {
