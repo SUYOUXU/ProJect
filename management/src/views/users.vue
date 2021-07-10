@@ -366,12 +366,11 @@ export default {
         return;
       }
 
-      this.queryInfo.id = id
+      this.queryInfo.id = id;
       const resdata = await this.$http.get("/api/deleteuser", {
-        params: this.queryInfo
+        params: this.queryInfo,
       });
 
-   
       this.$message.info("删除成功");
       this.userList = resdata.data.data;
       this.total = resdata.data.total;
