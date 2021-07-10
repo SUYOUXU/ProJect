@@ -2,14 +2,14 @@
 <template>
 
   <div>
-    <h1>GoodsList</h1>
+    <h1>tv</h1>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'GoodsList',
+  name: 'Tv',
   props:[],
   components: {
    

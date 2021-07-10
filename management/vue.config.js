@@ -113,16 +113,38 @@ module.exports = {
                             "id": 3,
                             "name": "商品管理",
                             "child": [{
+                                "id": 2,
+                                "name": "相机",
+                                "path": "/home/camera"
+                            },{
+                                "id": 3,
+                                "name": "电脑",
+                                "path": "/home/computer"
+                            },{
                                 "id": 4,
-                                "name": "商品列表",
-                                "path": "/home/product"
-                            }]
+                                "name": "手机",
+                                "path": "/home/phone"
+                            },{
+                                "id": 5,
+                                "name": "珠宝",
+                                "path": "/home/jewelry"
+                            },{
+                                "id": 6,
+                                "name": "家具",
+                                "path": "/home/furniture"
+                            },{
+                                "id": 7,
+                                "name": "电视",
+                                "path": "/home/TV"
+                            },
+                        
+                        ]
                         }, {
                             "id": 4,
                             "name": "订单管理",
                             "child": [
                                 {
-                                    "id": 4,
+                                    "id": 8,
                                     "name": "订单列表",
                                     "path": "/home/order"
                                 }

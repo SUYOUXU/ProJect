@@ -1,8 +1,8 @@
 
 // 给axios添加跨域请求
 import axios from 'axios';
-export const baseUrl = 'http://120.76.247.5:2003'
-export const apiUrl = `${baseUrl}/api`
+export const baseUrl = 'http://10.3.136.170:3000'
+export const apiUrl = `${baseUrl}`
 // 创建一个axios实例
 const instance = axios.create({
   baseURL: apiUrl,

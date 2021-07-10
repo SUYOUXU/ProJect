@@ -1,5 +1,4 @@
 
-
 <template>
     
   <div class="home">
@@ -8,22 +7,18 @@
     <el-container>
       <el-header>
         <div>
-         
           <span class="title">VANS后台管理系统</span>
         </div>
         <!-- type='success'已经封装好的样式 -->
         <el-button type="success" @click="exit">退出</el-button>
       </el-header>
-      
+
       <el-container>
-        <el-aside 
-        class="elaside" 
-        :width="isOpen ? '42px' : '200px'"
-        >
+        <el-aside class="elaside" :width="isOpen ? '42px' : '200px'">
           <!-- 这里写一个 可以伸长缩短 asidebar的动画小按钮 -->
-        <div @click="switchMenu" class="toggleBtn">
-          <i :class="isOpen ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
-        </div>
+          <div @click="switchMenu" class="toggleBtn">
+            <i :class="isOpen ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
+          </div>
 
           <!-- 左侧菜单区域 -->
           <!--
@@ -105,13 +100,18 @@ export default {
       // 用中文key给项目循环添加icon图标
       iconObj2: {
         用户管理: "iconfont icon-Management",
-       
         商品管理: "iconfont icon-shangpinguanli",
         订单管理: "iconfont icon-dingdanguanli",
         数据统计: "iconfont icon-shujutongji",
         用户列表: "iconfont icon-yonghuliebiao",
         商品列表: "iconfont icon-shangpinliebiao",
-       
+        订单列表: "iconfont icon-dingdan",
+        相机: "iconfont icon-V",
+        电脑: "iconfont icon-diannao",
+        手机: "iconfont icon-shouji",
+        珠宝: "iconfont icon-zhubaopeishi",
+        家具: "iconfont icon-jiaju",
+        电视: "iconfont icon-dianshi",
       },
     };
   }, //方法 函数写这里

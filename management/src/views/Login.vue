@@ -3,9 +3,6 @@
     
   <div class="login">
     <div class="loginBox">
-      <div class="avtor">
-     
-      </div>
       <el-form
         :rules="rules"
         class="loginForm"
@@ -170,23 +167,16 @@ export default {
     transform: translate(-50%, -50%);
     border-radius: 5px;
     background: url(https://z3.ax1x.com/2021/06/14/27XJzQ.gif);
-    .avtor {
-      height: 60px;
-      width: 60px;
-      border: 1px solid #eee;
-      border-radius: 50%;
-      padding: 5px;
-      box-shadow: 0 0 12px #dddddd;
-      position: absolute;
-      transform: translate(-15%, -15%);
-      background-color: #ffffff;
+    background-size: 100%;
+    
+     
       img {
         height: 60px;
         width: 60px;
         border-radius: 50%;
         background-color: #ffffff;
       }
-    }
+  
     .loginForm {
       position: absolute;
       bottom: 36px;
