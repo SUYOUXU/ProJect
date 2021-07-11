@@ -166,7 +166,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    background: url(https://z3.ax1x.com/2021/06/14/27XJzQ.gif);
+    background: url('https://z3.ax1x.com/2021/06/14/27XJzQ.gif');
     background-size: 100%;
     
      

@@ -1,6 +1,5 @@
 
-<template>
-    
+<template>  
   <div>
     <!--面包屑导航区 -->
     <!-- <el-bareadcrumb> 面包屑导航包裹的标签 该标签里面自带有插槽 也有写好的样式 -->

@@ -30,7 +30,12 @@
         </el-table-column>
         <el-table-column prop="name" label="商品介绍" width="600">
         </el-table-column>
-        <el-table-column width="300" prop="rfe" label="图片"> </el-table-column>
+        <el-table-column width="300" prop="" label="图片">
+           <template slot-scope="scope">
+      <img  :src="scope.row.imgurl" alt="" style="width: 80px;height: 80px">
+    </template>
+
+           </el-table-column>
         <el-table-column prop="price" label="价格"> </el-table-column>
 
         <el-table-column label="操作">
@@ -48,9 +53,9 @@
             >
           </template>
         </el-table-column>
-
-        <!-- 分页 -->
-         <el-pagination
+      </el-table>
+      <!-- 分页 -->
+       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrrntChange"
         :current-page="queryInfo.pagenum"
@@ -60,7 +65,6 @@
         layout="total,sizes, prev, pager, next,jumper"
       >
       </el-pagination>
-      </el-table>
     </el-card>
   </div>
 </template>
@@ -82,16 +86,17 @@ export default {
     return {
       page: 1,
       CameraList: [],
-       queryInfo: { id: 0, pagenum: 1, pagesize: 3, query: "" },
-       total:0
+      queryInfo: { id: 0, pagenum: 1, pagesize: 3, query: "" },
+      total: 0,
     };
   }, //方法 函数写这里
   methods: {
     async getCamera() {
-      let res = await this.$request.get(this.$baseUrl + "/good/list", {
-        params: {
-          type: "相机",
-        },
+      let res = await this.$request.get(this.$baseUrl + "/good/list",{
+        params:{
+          type:'相机',
+          size:10
+        }
       });
       console.log("相机种类请求回来的数据", res.data);
       this.CameraList = res.data;
@@ -114,6 +119,17 @@ export default {
     handleCurrrntChange(newpage) {
       // this.queryInfo.pagenum = newpage;
       // this.getUserList();
+    },
+    // 修改用户时被调用的函数
+    updateUserDialog(userinfo) {
+      console.log(userinfo);
+      this.updateUserDialogVisible = true;
+      // 下面是为了点击修改的时候，把原来的数据显示在input框中
+      this.updateForm.id = userinfo.id;
+      this.updateForm.username = userinfo.UserName;
+      this.updateForm.email = userinfo.Email;
+      this.updateForm.mobile = userinfo.Mobile;
+      this.updateForm.password = userinfo.Password;
     },
   }, //计算属性
   computed: {}, //侦听器
