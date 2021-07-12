@@ -43,58 +43,7 @@ const routes = [
     { path: 'camera', component: Camera }
     ],
   },
-  // 电脑
-  {
-    path: '/home',
-    name: 'Computer',
-    component: Home,
-    redirect: '/computer',
-    children: [{ path: 'WelCome', component: WelCome },
-    { path: 'computer', component: Computer }
-    ],
-  },
-  // // 手机
-  {
-    path: '/home',
-    name: ' Phone',
-    component: Home,
-    redirect: '/phone',
-    children: [{ path: 'WelCome', component: WelCome },
-    { path: 'phone', component: Phone }
-    ],
-  },
-  // // 珠宝
-  {
-    path: '/home',
-    name: 'Jewelry',
-    component: Home,
-    redirect: '/jewelry',
-    children: [{ path: 'WelCome', component: WelCome },
-    { path: 'jewelry', component: Jewelry }
-    ],
-  },
-  // // 家具
-  {
-    path: '/home',
-    name: 'Furniture',
-    component: Home,
-    redirect: '/furniture',
-    children: [{ path: 'WelCome', component: WelCome },
-    { path: 'furniture', component: Furniture }
-    ],
-  },
-  // 电视
-  {
-    path: '/home',
-    name: 'TV',
-    component: Home,
-    redirect: '/TV',
-    children: [{ path: 'WelCome', component: WelCome },
-    { path: 'TV', component: TV }
-    ],
-  },
-
-
+  
   // 订单管理
   {
     path: '/home',

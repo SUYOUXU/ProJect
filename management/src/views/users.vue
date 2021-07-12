@@ -283,27 +283,27 @@ export default {
       console.log("addUserEnte");
       // 这里是为了 在请求的参数中添加pagenum 和pagesize这两个参数（这是方法二）
       // 方法一是直接在addForm中添加 addForm看上面的data
-      var pagenumval = this.queryInfo.pagenum;
+      var pagenumval = this.queryInfo.page;
       // 这里就把字符串pagenum赋值给变量pagenum（也可以说这里把pagenum变量变成了key=value形式）
-      var pagenum = "pagenum";
+      var pagenum = "page";
       // 把变量pagenum添加到addForm数值中 并给予属性值pagenuvaluemval（key=value形式）
       this.addForm[pagenum] = pagenumval;
 
-      var pagesizeval = this.queryInfo.pagesize;
-      var pagesize = "pagesize";
+      var pagesizeval = this.queryInfo.size;
+      var pagesize = "size";
       this.addForm[pagesize] = pagesizeval;
 
       console.log(this.$refs.addFormRef);
       // validate 这是  this.$refs.addFormRef中有的一个方法，能够检测表单是否验证成功
       this.$refs.addFormRef.validate(async (valid) => {
         if (valid) {
-          const res = await this.$http.get("/api/adduser", {
+          const res = await this.$request.post(this.$baseUrl+"/good/updategood", {
             params: this.addForm,
           });
           console.log(res);
-          this.userlist = res.data.data;
-          this.total = res.data.total;
-          this.adduserdialogVisible = false;
+          // this.userlist = res.data.data;
+          // this.total = res.data.total;
+          // this.adduserdialogVisible = false;
         } else {
           console.log("error 添加用户");
           return false;

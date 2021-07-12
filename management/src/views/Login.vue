@@ -30,7 +30,7 @@
         </el-form-item>
 
         <el-form-item class="buttons">
-          <el-button type="primary"  @click="login">登录</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
           <el-button @click="reset" type="info">重置</el-button>
         </el-form-item>
       </el-form>
@@ -46,10 +46,6 @@ export default {
   components: {},
   data() {
     return {
-      loginObj: {
-        username: "admin",
-        password: "123456",
-      },
       formdata: {
         username: "",
         password: "",
@@ -85,15 +81,6 @@ export default {
     };
   }, //方法 函数写这里
   methods: {
-    test1() {
-      this.$http
-        .get("/api/login", {
-          params: this.loginObj,
-        })
-        .then((res) => {
-          console.log(res);
-        });
-    },
     // 重置
     reset() {
       console.log("reset");
@@ -114,27 +101,31 @@ export default {
 
           return;
         }
-        const res = await this.$http("/api/login", {
-          params: this.formdata,
+
+        const res = await this.$request.post(this.$baseUrl + "/user/login", {
+          username: this.formdata.username,
+          password: this.formdata.password,
         });
-        console.log('res',res);
+        console.log("res", res);
+        console.log(this.formdata.username);
+        console.log(this.formdata.password);
         // 判断登录是否成功
-        if (res.data.code !== 1) {
-          this.formdata.username = "";
-          this.formdata.password = "";
-          alert("登录失败");
-          return
-        }
+        // if (res.data.code !== 1) {
+        //   this.formdata.username = "";
+        //   this.formdata.password = "";
+        //   alert("登录失败");
+        //   return;
+        // }
         // 登录成功后
-       this.$message({
-          message: '登录成功',
-          type: 'success'
+        this.$message({
+          message: "登录成功",
+          type: "success",
         });
         // 登录成功后存储token
         // sessionStorage是会话级别的存储
-        window.sessionStorage.setItem('token',res.data.token)
+        window.sessionStorage.setItem("token", res.data.token);
         // 再跳到，登录成功之后呈现的页面
-        this.$router.push('/home')
+        this.$router.push("/home");
       });
     },
   }, //计算属性
@@ -166,17 +157,15 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    background: url('https://z3.ax1x.com/2021/06/14/27XJzQ.gif');
-    background-size: 100%;
-    
-     
-      img {
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        background-color: #ffffff;
-      }
-  
+    background: url(https://z3.ax1x.com/2021/06/14/27XJzQ.gif);
+
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
     .loginForm {
       position: absolute;
       bottom: 36px;

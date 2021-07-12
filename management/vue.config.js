@@ -114,29 +114,10 @@ module.exports = {
                             "name": "商品管理",
                             "child": [{
                                 "id": 2,
-                                "name": "相机",
+                                "name": "商品列表",
                                 "path": "/home/camera"
-                            },{
-                                "id": 3,
-                                "name": "电脑",
-                                "path": "/home/computer"
-                            },{
-                                "id": 4,
-                                "name": "手机",
-                                "path": "/home/phone"
-                            },{
-                                "id": 5,
-                                "name": "珠宝",
-                                "path": "/home/jewelry"
-                            },{
-                                "id": 6,
-                                "name": "家具",
-                                "path": "/home/furniture"
-                            },{
-                                "id": 7,
-                                "name": "电视",
-                                "path": "/home/TV"
-                            },
+                            }
+                         
                         
                         ]
                         }, {
