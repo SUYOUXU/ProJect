@@ -102,7 +102,7 @@ export default {
           return;
         }
 
-        const res = await this.$request.post(this.$baseUrl + "/user/login", {
+        const res = await this.$request.post(this.$baseUrl + "/login", {
           username: this.formdata.username,
           password: this.formdata.password,
         });

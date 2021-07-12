@@ -55,22 +55,7 @@
         </el-table-column>
         <el-table-column label="价格" prop="price" width="180">
         </el-table-column>
-        <el-table-column label="状态" prop="Mgstate" width="130">
-          <!-- slot-scope="scope" 粉碎作用域 提取当前行数据
-          后面的scope是变量 -->
-          <template slot-scope="scope">
-            <!-- 开关选择器 -->
-            <!-- scope.row.Mgstate这里的Mgstate是状态哪里的 -->
-            <el-switch
-              v-model="scope.row.MgState"
-              active-color="#409EFF"
-              inactive-color="#C0CCDA"
-              @change="userStateChange(scope.row)"
-            >
-            </el-switch>
-          </template>
-          <!------------------------------------------------------------->
-        </el-table-column>
+
         <el-table-column label="操作">
           <template slot-scope="scope">
             <!-- 拿到本行的数据修改 -->
@@ -97,7 +82,7 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrrntChange"
         :current-page="queryInfo.page"
-        :page-sizes="[3, 5, 6 ]"
+        :page-sizes="[3, 5, 6]"
         :page-size="queryInfo.size"
         :total="total"
         layout="total,sizes, prev, pager, next,jumper"
@@ -199,10 +184,11 @@ export default {
       adduserdialogVisible: false,
       updateUserDialogVisible: false,
       addForm: {
-        username: "",
-        password: "",
-        email: "",
-        mobile: "",
+        gender: "",
+        name: "",
+        imgurl: "",
+        price: "",
+        type: 0,
         // page:1,
         // size:3
       },
@@ -218,7 +204,7 @@ export default {
   methods: {
     async getUserList() {
       let res = await this.$request.get(this.$baseUrl + "/good/list", {
-        params:this.queryInfo
+        params: this.queryInfo,
       });
       console.log("商品列表请求回来的数据", res);
       this.userlist = res.data.data.data;
@@ -237,54 +223,50 @@ export default {
       this.queryInfo.page = newpage;
       this.getUserList();
     },
-    // 状态按钮的函数
-    async userStateChange(userinfo) {
-      const res = await this.$http.get("/api/userupdate", {
-        params: userinfo,
-      });
-      console.log(res);
-      if (res.data.code != 200) {
-        this.$message.console.error("改变状态用户状态成功");
-        return;
-      }
-      this.$message.success("用户状态已经改变成功" + res.data.newState);
-    },
+
     async search() {
-      const res = await this.$request.get(this.$baseUrl+"/good/list", {
+      const res = await this.$request.get(this.$baseUrl + "/good/list", {
         params: this.queryInfo,
       });
-      console.log('按种类请求回来的数据',res);
+      console.log("按种类请求回来的数据", res);
       this.userlist = res.data.data.data;
       console.log(this.queryInfo);
     },
     switch2() {
       this.adduserdialogVisible = true;
     },
+
     // 按下确定添加用户后 调用的函数  查看验证是否通过
     addUserEnter() {
+      //  queryInfo: { id: 0, pagenum: 1, pagesize: 3, query: "" }
+      var pagenumval = this.queryInfo.page;
+      var page = "page";
+      this.addForm[page] = pagenumval;
+
+      var pagesizeval = this.queryInfo.size;
+      var size = "size";
+      this.addForm[size] = pagesizeval;
+
+      // console.log(this.$refs.addFormRef);
       this.$refs.addFormRef.validate(async (valid) => {
         if (valid) {
           const res = await this.$request.post(
             this.$baseUrl + "/good/updategood",
             {
-              tepe: 0,
-              username: this.gender,
-              password: this.name,
-              email: this.imgurl,
-              mobile: this.price,
+              params: this.addForm,
             }
           );
-          console.log('添加商品请求回来的信息',res);
-          // this.userlist = res.data.data;
-          // this.total = res.data.total;
-          // this.adduserdialogVisible = false;
+          console.log("添加商品请求回来的信息", res);
+          this.userlist = res.data.data.data;
+          this.total = res.data.data.total;
+          this.adduserdialogVisible = false;
         } else {
           console.log("error 添加用户");
           return false;
         }
       });
     },
-    
+
     // 添加用户后 对话框关闭的时 调用该函数 该函数会用本身自有的resetFields方法清空掉 我们添加时在input框输入的数据
     addUserDialog() {
       this.$refs.addFormRef.resetFields();
