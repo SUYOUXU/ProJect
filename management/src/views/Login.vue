@@ -123,7 +123,8 @@ export default {
         });
         // 登录成功后存储token
         // sessionStorage是会话级别的存储
-        window.sessionStorage.setItem("token", res.data.token);
+        // console.log(res.data.data.Authorization);
+        window.sessionStorage.setItem("token", res.data.data.Authorization);
         // 再跳到，登录成功之后呈现的页面
         this.$router.push("/home");
       });

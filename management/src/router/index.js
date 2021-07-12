@@ -5,11 +5,6 @@ import WelCome from '../views/WelCome.vue'
 import users from '../views/users.vue'
 import Camera from '../views/Goods/Camera.vue'
 import Order from '../views/Order.vue'
-import Computer from '../views/Goods/Computer.vue'
-import Phone from '../views/Goods/Phone.vue'
-import Jewelry from '../views/Goods/Jewelry.vue'
-import Furniture from '../views/Goods/Furniture.vue'
-import TV from '../views/Goods/TV.vue'
 
 
 Vue.use(VueRouter)

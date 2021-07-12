@@ -274,7 +274,7 @@ export default {
               mobile: this.price,
             }
           );
-          console.log(res);
+          console.log('添加商品请求回来的信息',res);
           // this.userlist = res.data.data;
           // this.total = res.data.total;
           // this.adduserdialogVisible = false;
@@ -284,6 +284,7 @@ export default {
         }
       });
     },
+    
     // 添加用户后 对话框关闭的时 调用该函数 该函数会用本身自有的resetFields方法清空掉 我们添加时在input框输入的数据
     addUserDialog() {
       this.$refs.addFormRef.resetFields();
