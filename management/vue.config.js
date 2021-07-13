@@ -121,16 +121,6 @@ module.exports = {
                         
                         ]
                         }, {
-                            "id": 4,
-                            "name": "订单管理",
-                            "child": [
-                                {
-                                    "id": 8,
-                                    "name": "订单列表",
-                                    "path": "/home/order"
-                                }
-                            ]
-                        }, {
                             "id": 5,
                             "name": "数据统计",
                             "child": []

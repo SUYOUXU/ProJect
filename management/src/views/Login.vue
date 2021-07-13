@@ -90,7 +90,7 @@ export default {
     // 验证该表单是否通过
     login() {
       this.$refs.loginformref.validate(async (valid) => {
-        console.log(valid);
+        // console.log(valid);
         if (!valid) {
           // element ui 的提示组件
           this.$message({
@@ -102,20 +102,21 @@ export default {
           return;
         }
 
-        const res = await this.$request.post(this.$baseUrl + "/login", {
+        const res = await this.$request.post(this.$baseUrl + "/user/login", {
           username: this.formdata.username,
           password: this.formdata.password,
         });
-        console.log("res", res);
+        console.log("登录后返回的信息", res);
         console.log(this.formdata.username);
         console.log(this.formdata.password);
         // 判断登录是否成功
-        // if (res.data.code !== 1) {
-        //   this.formdata.username = "";
-        //   this.formdata.password = "";
-        //   alert("登录失败");
-        //   return;
-        // }
+
+        if (res.data.code !== 200) {
+          this.formdata.username = "";
+          this.formdata.password = "";
+          alert("登录失败");
+          return;
+        }
         // 登录成功后
         this.$message({
           message: "登录成功",
@@ -125,6 +126,8 @@ export default {
         // sessionStorage是会话级别的存储
         // console.log(res.data.data.Authorization);
         window.sessionStorage.setItem("token", res.data.data.Authorization);
+        // console.log(res.data.data.Authorization);
+
         // 再跳到，登录成功之后呈现的页面
         this.$router.push("/home");
       });

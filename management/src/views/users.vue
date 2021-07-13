@@ -382,6 +382,7 @@ export default {
   beforeCreate() {}, //组件创建之后
   created() {
     this.getUserList();
+  
   }, //页面渲染之前
   beforeMount() {}, //页面渲染之后
   mounted() {}, //页面视图数据更新之前

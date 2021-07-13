@@ -91,26 +91,26 @@
     </el-card>
     <!-- 添加用户的对话框 -->
     <el-dialog
-      title="添加用户和用户信息"
+      title="添加商品和商品信息"
       width="50%"
       :visible.sync="adduserdialogVisible"
       @close="addUserDialog"
     >
       <el-form ref="addFormRef" :model="addForm" lable-width="80px">
-        <el-form-item label="商品名称" prop="username">
-          <el-input v-model="addForm.username"></el-input>
+        <el-form-item label="商品名称" prop="gender">
+          <el-input v-model="addForm.gender"></el-input>
         </el-form-item>
 
-        <el-form-item label="商品介绍" prop="password">
-          <el-input v-model="addForm.password"></el-input>
+        <el-form-item label="商品介绍" prop="name">
+          <el-input v-model="addForm.name"></el-input>
         </el-form-item>
 
-        <el-form-item label="图片" prop="email">
-          <el-input v-model="addForm.email"></el-input>
+        <el-form-item label="图片地址" prop="imgurl">
+          <el-input v-model="addForm.imgurl"></el-input>
         </el-form-item>
 
-        <el-form-item label="价格" prop="mobile">
-          <el-input v-model="addForm.mobile"></el-input>
+        <el-form-item label="价格" prop="price">
+          <el-input v-model="addForm.price"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer"></span>
@@ -119,25 +119,25 @@
     </el-dialog>
     <!-- 修改用户的dialog框 -->
     <el-dialog
-      title="修改用户信息"
+      title="修改商品信息"
       :visible.sync="updateUserDialogVisible"
       width="40%"
       @close="updateDialogClosed"
     >
       <el-form ref="updateFormRef" :model="updateForm" label-width="80px">
-        <el-form-item label="用户名" prop="username">
+        <el-form-item label="用户名" prop="gender">
           <el-input v-model="updateForm.username"></el-input>
         </el-form-item>
 
-        <el-form-item label="密码" prop="password">
+        <el-form-item label="密码" prop="name">
           <el-input v-model="updateForm.password" disabled></el-input>
         </el-form-item>
 
-        <el-form-item label="邮箱" prop="email">
+        <el-form-item label="邮箱" prop="imgurl">
           <el-input v-model="updateForm.email"></el-input>
         </el-form-item>
 
-        <el-form-item label="电话" prop="mobile">
+        <el-form-item label="电话" prop="price">
           <el-input v-model="updateForm.mobile"></el-input>
         </el-form-item>
       </el-form>
@@ -183,6 +183,7 @@ export default {
       total: 0,
       adduserdialogVisible: false,
       updateUserDialogVisible: false,
+
       addForm: {
         gender: "",
         name: "",
@@ -193,10 +194,10 @@ export default {
         // size:3
       },
       updateForm: {
-        username: "",
-        password: "",
-        email: "",
-        mobile: "",
+        gender: "",
+        imgurl: "",
+        name: "",
+        price: "",
         id: "",
       },
     };
@@ -279,20 +280,20 @@ export default {
       this.updateUserDialogVisible = true;
       // 下面是为了点击修改的时候，把原来的数据显示在input框中
       this.updateForm.id = userinfo.id;
-      this.updateForm.username = userinfo.UserName;
-      this.updateForm.email = userinfo.Email;
-      this.updateForm.mobile = userinfo.Mobile;
-      this.updateForm.password = userinfo.Password;
+      this.updateForm.gender = userinfo.gender;
+      this.updateForm.name = userinfo.name;
+      this.updateForm.imgurl = userinfo.imgurl;
+      this.updateForm.price = userinfo.price;
     },
 
     enterupdateUser() {
-      var pagenumval = this.queryInfo.pagenum;
-      var pagenum = "pagenum";
-      this.addForm[pagenum] = pagenumval;
+      var pagenumval = this.queryInfo.page;
+      var page = "page";
+      this.addForm[page] = pagenumval;
 
-      var pagesizeval = this.queryInfo.pagesize;
-      var pagesize = "pagesize";
-      this.addForm[pagesize] = pagesizeval;
+      var pagesizeval = this.queryInfo.size;
+      var size = "size";
+      this.addForm[size] = pagesizeval;
 
       this.$refs.updateFormRef.validate(async (valid) => {
         if (valid) {
