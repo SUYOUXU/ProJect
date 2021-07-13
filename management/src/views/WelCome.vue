@@ -3,7 +3,7 @@
 
    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div>
-        <h1>12123</h1>
+        <h1>WelCome</h1>
     </div>
     
 </template>

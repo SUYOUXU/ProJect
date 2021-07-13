@@ -125,19 +125,19 @@
       @close="updateDialogClosed"
     >
       <el-form ref="updateFormRef" :model="updateForm" label-width="80px">
-        <el-form-item label="用户名" prop="gender">
+        <el-form-item label="商品名称" prop="gender">
           <el-input v-model="updateForm.username"></el-input>
         </el-form-item>
 
-        <el-form-item label="密码" prop="name">
-          <el-input v-model="updateForm.password" disabled></el-input>
+        <el-form-item label="商品介绍" prop="name">
+          <el-input v-model="updateForm.password" ></el-input>
         </el-form-item>
 
-        <el-form-item label="邮箱" prop="imgurl">
+        <el-form-item label="图片" prop="imgurl">
           <el-input v-model="updateForm.email"></el-input>
         </el-form-item>
 
-        <el-form-item label="电话" prop="price">
+        <el-form-item label="价格" prop="price">
           <el-input v-model="updateForm.mobile"></el-input>
         </el-form-item>
       </el-form>
@@ -192,6 +192,7 @@ export default {
         type: 0,
         // page:1,
         // size:3
+        type:0
       },
       updateForm: {
         gender: "",
